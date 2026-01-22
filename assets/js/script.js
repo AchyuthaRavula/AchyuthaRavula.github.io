@@ -1,136 +1,93 @@
+// Intersection Observer for Scroll Animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-up');
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Select elements to animate
+    const animateElements = document.querySelectorAll('.project-card, .skill-card, .timeline-item, .section-heading, .hero-content');
     
-    /* -------------------------------------
-       Carousel Functionality
-    ------------------------------------- */
+    animateElements.forEach(el => {
+        el.style.opacity = '0'; // Initial state before animation classes kick in
+        observer.observe(el);
+    });
+
+    // Carousel Logic (Existing or New)
     const track = document.querySelector('.carousel-track');
-    const prevButton = document.querySelector('.prev-btn');
-    const nextButton = document.querySelector('.next-btn');
     const slides = Array.from(track.children);
+    const nextButton = document.querySelector('.next-btn');
+    const prevButton = document.querySelector('.prev-btn');
     const dotsNav = document.querySelector('.carousel-nav');
-    const dots = Array.from(dotsNav.children);
-
-    let currentSlideIndex = 0;
-
-    // Helper: Determine how many slides are visible based on viewport width
-    function getSlidesPerView() {
-        const width = window.innerWidth;
-        if (width <= 768) return 1;
-        if (width <= 992) return 2;
-        return 3;
-    }
-
-    function updateCarousel() {
-        const slidesPerView = getSlidesPerView();
+    if(dotsNav && slides.length > 0) {
+        const dots = Array.from(dotsNav.children);
+        
         const slideWidth = slides[0].getBoundingClientRect().width;
         
-        // Move track
-        const amountToMove = (slideWidth + 30) * currentSlideIndex; // 30 is rough gap size, calculation adjustment needed below for precision
-        
-        // Better approach: calculate percentage translation
-        // 100% / slidesPerView = width % of one slide.
-        // we move by (100% / slidesPerView) * currentSlideIndex
-        
-        const movePercentage = (100 / slidesPerView) * currentSlideIndex;
-        track.style.transform = `translateX(-${movePercentage}%)`;
+        // Arrange slides next to one another
+        const setSlidePosition = (slide, index) => {
+            slide.style.left = slideWidth * index + 'px';
+        };
+        slides.forEach(setSlidePosition);
 
-        // Update Dots
-        dots.forEach(d => d.classList.remove('current-slide'));
-        // Map current index to dot. Logic depends on how many groupings we have.
-        // For simplicity, let's highlight the dot corresponding to the leftmost visible slide
-        if(dots[currentSlideIndex]) {
-            dots[currentSlideIndex].classList.add('current-slide');
-        }
+        const moveToSlide = (track, currentSlide, targetSlide) => {
+            track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+            currentSlide.classList.remove('current-slide');
+            targetSlide.classList.add('current-slide');
+        };
 
-        // Hide arrows at boundaries
-        const totalSlides = slides.length;
-        if (currentSlideIndex === 0) {
-            prevButton.style.opacity = '0.5';
-            prevButton.style.cursor = 'default';
-        } else {
-            prevButton.style.opacity = '1';
-            prevButton.style.cursor = 'pointer';
-        }
+        const updateDots = (currentDot, targetDot) => {
+            currentDot.classList.remove('current-slide');
+            targetDot.classList.add('current-slide');
+        };
 
-        if (currentSlideIndex >= totalSlides - slidesPerView) {
-            nextButton.style.opacity = '0.5';
-            nextButton.style.cursor = 'default';
-        } else {
-            nextButton.style.opacity = '1';
-            nextButton.style.cursor = 'pointer';
-        }
-    }
+        // When I click left, move slides to the left
+        prevButton.addEventListener('click', e => {
+            const currentSlide = track.querySelector('.current-slide');
+            const prevSlide = currentSlide.previousElementSibling;
+            const currentDot = dotsNav.querySelector('.current-slide');
+            const prevDot = currentDot.previousElementSibling;
 
-    nextButton.addEventListener('click', () => {
-        const slidesPerView = getSlidesPerView();
-        if (currentSlideIndex < slides.length - slidesPerView) {
-            currentSlideIndex++;
-            updateCarousel();
-        }
-    });
-
-    prevButton.addEventListener('click', () => {
-        if (currentSlideIndex > 0) {
-            currentSlideIndex--;
-            updateCarousel();
-        }
-    });
-
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-             // Handle bounds if user clicks last dot but fewer slides fit
-             const slidesPerView = getSlidesPerView();
-             if (index > slides.length - slidesPerView) {
-                 currentSlideIndex = slides.length - slidesPerView;
-             } else {
-                 currentSlideIndex = index;
-             }
-             updateCarousel();
-        });
-    });
-
-    // Recalculate on resize
-    window.addEventListener('resize', updateCarousel);
-    
-    // Initial call
-    updateCarousel();
-
-
-    /* -------------------------------------
-       Mobile Navigation
-    ------------------------------------- */
-    const mobileToggle = document.querySelector('.mobile-menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
-
-    mobileToggle.addEventListener('click', () => {
-        if (mainNav.style.display === 'block') {
-            mainNav.style.display = 'none';
-        } else {
-            mainNav.style.display = 'block';
-            mainNav.style.position = 'absolute';
-            mainNav.style.top = '70px';
-            mainNav.style.left = '0';
-            mainNav.style.width = '100%';
-            mainNav.style.background = '#fff';
-            mainNav.style.padding = '20px';
-            mainNav.style.boxShadow = '0 5px 10px rgba(0,0,0,0.1)';
-            
-            // Stack links vertically
-            const ul = mainNav.querySelector('ul');
-            ul.style.flexDirection = 'column';
-            ul.style.alignItems = 'center';
-            ul.style.gap = '20px';
-        }
-    });
-
-    // Close menu when link is clicked
-    const navLinks = mainNav.querySelectorAll('a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                mainNav.style.display = 'none';
+            if (prevSlide) {
+                moveToSlide(track, currentSlide, prevSlide);
+                updateDots(currentDot, prevDot);
             }
         });
-    });
 
+        // When I click right, move slides to the right
+        nextButton.addEventListener('click', e => {
+            const currentSlide = track.querySelector('.current-slide');
+            const nextSlide = currentSlide.nextElementSibling;
+            const currentDot = dotsNav.querySelector('.current-slide');
+            const nextDot = currentDot.nextElementSibling;
+
+            if (nextSlide) {
+                moveToSlide(track, currentSlide, nextSlide);
+                updateDots(currentDot, nextDot);
+            }
+        });
+
+        // Click nav indicators
+        dotsNav.addEventListener('click', e => {
+            const targetDot = e.target.closest('button');
+            if (!targetDot) return;
+
+            const currentSlide = track.querySelector('.current-slide');
+            const currentDot = dotsNav.querySelector('.current-slide');
+            const targetIndex = dots.findIndex(dot => dot === targetDot);
+            const targetSlide = slides[targetIndex];
+
+            moveToSlide(track, currentSlide, targetSlide);
+            updateDots(currentDot, targetDot);
+        });
+    }
 });
