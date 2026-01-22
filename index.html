@@ -12,6 +12,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // REPLACE "YOUR_PUBLIC_KEY" WITH YOUR ACTUAL EMAILJS PUBLIC KEY
+            emailjs.init("K67QKfELcnYIKFLOx");
+        })();
+    </script>
 </head>
 
 <body>
@@ -75,7 +83,7 @@
     </section>
 
     <!-- About -->
-    <section id="about" class="section-padding full-height">
+    <section id="about" class="section-padding full-height reveal">
         <div class="container">
             <h2 class="section-heading">About Me</h2>
             <div class="about-content">
@@ -91,10 +99,11 @@
                     lifecycle—from ingestion to insight.</p>
             </div>
         </div>
+        </div>
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="section-padding full-height">
+    <section id="skills" class="section-padding full-height reveal">
         <div class="container">
             <h2 class="section-heading">Skills</h2>
             <div class="skills-grid">
@@ -162,10 +171,11 @@
 
             </div>
         </div>
+        </div>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="section-padding full-height">
+    <section id="projects" class="section-padding full-height reveal">
         <div class="container">
             <h2 class="section-heading">Projects</h2>
 
@@ -265,7 +275,7 @@
     </section>
 
     <!-- Professional Journey (Experience + Education) -->
-    <section id="experience" class="section-padding full-height">
+    <section id="experience" class="section-padding full-height reveal">
         <div class="container">
             <h2 class="section-heading">Professional Journey</h2>
             <div class="timeline">
@@ -344,7 +354,7 @@
     </section>
 
     <!-- Resume -->
-    <section id="resume" class="section-padding full-height">
+    <section id="resume" class="section-padding full-height reveal">
         <div class="container text-center">
             <h2 class="section-heading">Resume</h2>
             <div class="resume-content" style="max-width: 600px; margin: 0 auto;">
@@ -360,29 +370,43 @@
                 </div>
             </div>
         </div>
+        </div>
     </section>
 
 
 
     <!-- Contact -->
-    <section id="contact" class="section-padding full-height">
+    <section id="contact" class="section-padding full-height reveal">
         <div class="container form-container compact-form">
             <h2 class="section-heading">Contact</h2>
-            <form class="contact-form">
+            <form id="contact-form" class="contact-form">
                 <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" required>
+                    <label for="contact-name">Name</label>
+                    <input type="text" id="contact-name" name="name" required placeholder="Your Name">
                 </div>
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" required>
+                    <label for="contact-email">Email</label>
+                    <input type="email" id="contact-email" name="email" required placeholder="Your Email">
                 </div>
                 <div class="form-group">
-                    <label>Message</label>
-                    <textarea rows="4" required></textarea>
+                    <label for="contact-message">Message</label>
+                    <textarea id="contact-message" name="message" rows="4" required
+                        placeholder="How can I help you?"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Send</button>
+                <button type="submit" class="btn btn-primary btn-block">Send Message</button>
             </form>
+
+            <div id="contact-error" class="text-center" style="display: none; color: #ff6b6b; margin-top: 15px;">
+                <p><i class="fas fa-exclamation-circle"></i> Oops! Something went wrong. Please try again or email
+                    directly.</p>
+            </div>
+
+            <div id="contact-success" class="text-center" style="display: none;">
+                <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+                <h3>Message Sent!</h3>
+                <p>Thanks! I'll respond within 24–48 hours.</p>
+                <button id="reset-form-btn" class="btn btn-secondary btn-sm mt-3">Send Another</button>
+            </div>
             <div class="text-center mt-4">
                 <a href="mailto:achyutharavula21@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Get
                     Contact Details</a>
@@ -397,6 +421,12 @@
             </p>
         </div>
     </footer>
+
+    <!-- Global Fixed Navigation -->
+    <nav id="global-nav">
+        <button id="prev-btn" class="btn btn-secondary nav-btn"><i class="fas fa-arrow-up"></i> Previous</button>
+        <button id="next-btn" class="btn btn-secondary nav-btn">Next <i class="fas fa-arrow-down"></i></button>
+    </nav>
 
     <script src="assets/js/script.js"></script>
 </body>
