@@ -10,13 +10,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- Header / Navigation -->
+    <!-- Header / Nav -->
     <header class="site-header">
         <div class="container header-inner">
             <div class="logo">Achyutha Ravula</div>
@@ -27,46 +27,53 @@
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#experience">Experience</a></li>
-                    <li><a href="#resume">Resume</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+                <div class="header-socials">
+                    <a href="mailto:achyutharavula21@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/achyutha-ravula/" target="_blank" title="LinkedIn"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/AchyuthaRavula/" target="_blank" title="GitHub"><i
+                            class="fab fa-github"></i></a>
+                </div>
             </nav>
-            <div class="header-socials">
-                <a href="https://www.linkedin.com/in/achyutha-ravula/" target="_blank" aria-label="LinkedIn"><i
-                        class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/AchyuthaRavula/" target="_blank" aria-label="GitHub"><i
-                        class="fab fa-github"></i></a>
-                <a href="#contact" class="btn-sm">Email</a>
-            </div>
             <div class="mobile-menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="container hero-content">
-            <h1 class="hero-name">Achyutha Ravula</h1>
-            <h2 class="hero-title">Business Analyst | Data Analyst | BI Analyst</h2>
-            <p class="hero-tagline">Turning data into clear, actionable business insights through analytics,
-                visualization, and automation.</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="https://github.com/AchyuthaRavula/" target="_blank" class="btn btn-secondary"><i
-                        class="fab fa-github"></i> GitHub</a>
-                <a href="assets/Achyutha_Ravula_Resume.pdf" download class="btn btn-secondary"><i
-                        class="fas fa-download"></i> Resume</a>
-                <a href="https://www.linkedin.com/in/achyutha-ravula/" target="_blank" class="btn btn-secondary"><i
-                        class="fab fa-linkedin"></i> LinkedIn</a>
+    <!-- Hero / Home -->
+    <section id="home" class="hero-section full-height">
+        <div class="container hero-container">
+            <div class="hero-avatar">
+                <img src="assets/images/profile.jpg" alt="Achyutha Ravula">
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-name">Achyutha Ravula</h1>
+                <h2 class="hero-title">Analytics Professional | Business • Data • BI</h2>
+                <p class="hero-tagline">I use analytics, BI, and automation to help teams understand what’s happening,
+                    why it’s happening, and make confident, data-driven decisions.</p>
+                <div class="hero-skills-snapshot">
+                    SQL • Python • Power BI • Tableau • Databricks • Spark • Applied ML • Automation
+                </div>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="assets/Achyutha_Ravula_Resume.pdf" download class="btn btn-secondary"><i
+                            class="fas fa-file-download"></i> Download Resume</a>
+                    <a href="https://github.com/AchyuthaRavula/" target="_blank" class="btn btn-secondary"><i
+                            class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/achyutha-ravula/" target="_blank" class="btn btn-secondary"><i
+                            class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section-padding bg-light">
+    <!-- About -->
+    <section id="about" class="section-padding full-height">
         <div class="container">
-            <h2 class="section-rating">About Me</h2>
+            <h2 class="section-heading">About Me</h2>
             <div class="about-content">
                 <p>I am a dedicated Business Analytics graduate with extensive hands-on experience in data analysis,
                     Business Intelligence (BI), and automated reporting. My background bridges the gap between technical
@@ -79,232 +86,289 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section-padding">
+    <!-- Skills -->
+    <section id="skills" class="section-padding full-height">
         <div class="container">
             <h2 class="section-heading">Skills</h2>
             <div class="skills-grid">
-                <!-- Technical -->
+
+                <!-- 1) Business Analysis -->
                 <div class="skill-card">
-                    <h3><i class="fas fa-code"></i> Technical</h3>
-                    <ul>
-                        <li>Python (Pandas, PySpark)</li>
-                        <li>SQL (Advanced Querying)</li>
-                        <li>R Programming</li>
-                        <li>Excel (VBA, Pivot Tables)</li>
-                        <li>Power BI & Tableau</li>
-                    </ul>
+                    <h3><i class="fas fa-briefcase"></i> Business Analysis</h3>
+                    <p class="skill-desc">Bridging the gap between data insights and strategic business decisions.</p>
+                    <div class="skill-tags">
+                        <span>Strategic Alignment</span>
+                        <span>Stakeholder Management</span>
+                        <span>Requirements Gathering</span>
+                        <span>Process Mapping (BPMN)</span>
+                        <span>KPI Design</span>
+                        <span>User Stories</span>
+                        <span>Agile/Scrum</span>
+                    </div>
                 </div>
-                <!-- Platforms -->
+
+                <!-- 2) Analytics & Experimentation -->
                 <div class="skill-card">
-                    <h3><i class="fas fa-server"></i> Platforms</h3>
-                    <ul>
-                        <li>Databricks & Spark</li>
-                        <li>Hadoop Ecosystem</li>
-                        <li>Microsoft SharePoint</li>
-                        <li>Microsoft Teams</li>
-                        <li>Jupyter Notebooks</li>
-                    </ul>
+                    <h3><i class="fas fa-flask"></i> Analytics & Exp.</h3>
+                    <p class="skill-desc">Uncovering patterns and testing hypotheses to drive measurable growth.</p>
+                    <div class="skill-tags">
+                        <span>Impact Sizing</span>
+                        <span>Root Cause Analysis</span>
+                        <span>Hypothesis Framing</span>
+                        <span>A/B Testing</span>
+                        <span>Cohort Analysis</span>
+                        <span>Funnel Analysis</span>
+                        <span>SQL (Joins, CTEs)</span>
+                        <span>Forecasting</span>
+                    </div>
                 </div>
-                <!-- Analytics -->
+
+                <!-- 3) Data & BI -->
                 <div class="skill-card">
-                    <h3><i class="fas fa-chart-line"></i> Analytics</h3>
-                    <ul>
-                        <li>Forecasting & Modeling</li>
-                        <li>Feature Engineering</li>
-                        <li>Predictive Analytics</li>
-                        <li>Model Evaluation</li>
-                        <li>Problem Solving</li>
-                    </ul>
+                    <h3><i class="fas fa-chart-pie"></i> Data & BI</h3>
+                    <p class="skill-desc">Transforming raw data into trusted, interactive decision-support tools.</p>
+                    <div class="skill-tags">
+                        <span>Executive Dashboards</span>
+                        <span>Data Modeling</span>
+                        <span>Data Cleaning</span>
+                        <span>Power BI (DAX)</span>
+                        <span>Tableau</span>
+                        <span>Excel (Power Query)</span>
+                    </div>
                 </div>
+
+                <!-- 4) Tools & Platforms -->
+                <div class="skill-card">
+                    <h3><i class="fas fa-laptop-code"></i> Tools & Platforms</h3>
+                    <p class="skill-desc">Leveraging modern tech stacks for scalable and reproducible analysis.</p>
+                    <div class="skill-tags">
+                        <span>Automated Workflows</span>
+                        <span>SQL</span>
+                        <span>Python</span>
+                        <span>Databricks</span>
+                        <span>Spark</span>
+                        <span>R</span>
+                        <span>SharePoint/Teams</span>
+                        <span>GitHub</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Projects Section (Carousel) -->
-    <section id="projects" class="section-padding bg-light">
+    <!-- Projects -->
+    <section id="projects" class="section-padding full-height">
         <div class="container">
-            <h2 class="section-heading">Featured Projects</h2>
+            <h2 class="section-heading">Projects</h2>
 
-            <div class="carousel-container">
-                <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <div class="projects-grid">
 
-                <div class="carousel-track-container">
-                    <ul class="carousel-track">
-
-                        <!-- Project 1: UNT Police -->
-                        <li class="carousel-slide current-slide">
-                            <div class="project-card">
-                                <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
-                                <h3 class="project-title">UNT Police Public Safety Dashboard</h3>
-                                <p class="project-outcome">Capstone project delivering actionable safety insights.</p>
-                                <div class="project-tags">
-                                    <span>Power BI</span><span>DAX</span><span>SQL</span>
-                                </div>
-                                <ul class="project-bullets">
-                                    <li>Built an enterprise dashboard merging service calls with offense data.</li>
-                                    <li>Implemented complex DAX measures for trend analysis.</li>
-                                    <li>Provided insights to optimize officer dispatch and resource allocation.</li>
-                                </ul>
-                                <div class="project-links">
-                                    <a href="#" class="btn-link">View Details <i class="fas fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- Project 2: Blinkit Analysis -->
-                        <li class="carousel-slide">
-                            <div class="project-card">
-                                <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
-                                <h3 class="project-title">Blinkit Quick Commerce Analysis</h3>
-                                <p class="project-outcome">Optimizing delivery logistics through data visualization.</p>
-                                <div class="project-tags">
-                                    <span>Tableau</span><span>Data Analysis</span><span>Visualization</span>
-                                </div>
-                                <ul class="project-bullets">
-                                    <li>Analyzed delivery times and order volumes to identify bottlenecks.</li>
-                                    <li>Visualized demand surges to recommend staffing adjustments.</li>
-                                    <li>Created interactive dashboards for operational metrics.</li>
-                                </ul>
-                                <div class="project-links">
-                                    <a href="#" class="btn-link">View Details <i class="fas fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- Project 3: Loan Approval -->
-                        <li class="carousel-slide">
-                            <div class="project-card">
-                                <div class="card-icon"><i class="fas fa-university"></i></div>
-                                <h3 class="project-title">Loan Approval Classification</h3>
-                                <p class="project-outcome">Predictive modeling using Apache Spark.</p>
-                                <div class="project-tags">
-                                    <span>Apache Spark</span><span>Python</span><span>Machine Learning</span>
-                                </div>
-                                <ul class="project-bullets">
-                                    <li>Developed a classification model to predict loan eligibility.</li>
-                                    <li>Processed large datasets using PySpark for feature engineering.</li>
-                                    <li>Achieved high accuracy in identifying risk factors.</li>
-                                </ul>
-                                <div class="project-links">
-                                    <a href="https://github.com/AchyuthaRavula/Loan-Approval-Classification-using-Spark"
-                                        target="_blank" class="btn-link">GitHub Repo <i
-                                            class="fas fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </li>
-
-                    </ul>
+                <!-- WoofFlow -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/woof_flow.png" alt="WoofFlow">
+                        <span class="date-badge"><i class="far fa-calendar-alt"></i> 2025</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">WoofFlow Automation</h3>
+                        <p class="project-outcome">Agentic AI email automation workflow.</p>
+                        <div class="project-tags">
+                            <span>n8n</span><span>OpenAI</span><span>Automation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/AchyuthaRavula/WoofFlow" target="_blank" class="btn-link"><i
+                                    class="fab fa-github"></i> Code</a>
+                            <a href="https://playstaytionpetresort.com/" target="_blank" class="btn-link"><i
+                                    class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
                 </div>
 
-                <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
-            </div>
+                <!-- Blinkit -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/blinkit_insight.png" alt="Blinkit Insights">
+                        <span class="date-badge"><i class="far fa-calendar-alt"></i> 2024</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Blinkit Business Insights</h3>
+                        <p class="project-outcome">Delivery logistics optimization via Tableau.</p>
+                        <div class="project-tags">
+                            <span>Tableau</span><span>Analytics</span><span>Viz</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/AchyuthaRavula/blinkit-business-insights" target="_blank"
+                                class="btn-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="https://public.tableau.com/app/profile/rohit.surapalli/viz/10-MinuteMagicData-DrivenInsightsintoBlinkitsQuickCommerceModel/10-MinuteMagicData-DrivenInsightsintoBlinkitsQuickCommerceModel"
+                                target="_blank" class="btn-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="carousel-nav">
-                <button class="carousel-indicator current-slide"></button>
-                <button class="carousel-indicator"></button>
-                <button class="carousel-indicator"></button>
-                <button class="carousel-indicator"></button>
+                <!-- UNT Police -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/unt_safety.png" alt="UNT Safety">
+                        <span class="date-badge"><i class="far fa-calendar-alt"></i> 2025</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">UNT Police Dashboard</h3>
+                        <p class="project-outcome">Data-driven public safety capstone.</p>
+                        <div class="project-tags">
+                            <span>Power BI</span><span>DAX</span><span>SQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/AchyuthaRavula/Data-driven-public-safety-UNT-police"
+                                target="_blank" class="btn-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="https://www.linkedin.com/posts/achyutha-ravula_businessanalytics-powerbi-dataanalytics-activity-7407663127913435136-JERE/"
+                                target="_blank" class="btn-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loan Approval -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/loan_approval.png" alt="Loan Approval">
+                        <span class="date-badge"><i class="far fa-calendar-alt"></i> 2024</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Loan Approval ML</h3>
+                        <p class="project-outcome">Classification models using Spark ML.</p>
+                        <div class="project-tags">
+                            <span>Spark</span><span>Python</span><span>ML</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/AchyuthaRavula/loan-approval-classification" target="_blank"
+                                class="btn-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/1699273030818206/2186781896601460/3219611887954611/latest.html"
+                                target="_blank" class="btn-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <div class="text-center mt-4">
-                <a href="https://github.com/AchyuthaRavula/" target="_blank" class="view-all-link">View all projects on
-                    GitHub <i class="fas fa-arrow-right"></i></a>
+                <a href="https://github.com/AchyuthaRavula/" target="_blank" class="view-all-link">View All Projects <i
+                        class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section-padding">
+    <!-- Professional Journey (Experience + Education) -->
+    <section id="experience" class="section-padding full-height">
         <div class="container">
-            <h2 class="section-heading">Experience</h2>
+            <h2 class="section-heading">Professional Journey</h2>
             <div class="timeline">
 
                 <!-- Experience Item -->
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-date">2023 - Present</div>
+                <div class="timeline-item experience-item">
+                    <div class="timeline-marker marker-blue"></div>
+                    <div class="timeline-header">
+                        <span class="timeline-date">Jul 2024 – Dec 2025</span>
+                        <span class="timeline-tag tag-blue">Experience</span>
+                    </div>
                     <div class="timeline-content">
-                        <h3>Academic Data Analyst</h3>
-                        <p class="role-location">University of North Texas | Denton, Texas</p>
+                        <h3><span class="icon">🧑💼</span> Academic Data Analyst</h3>
+                        <p class="role-location">University of North Texas</p>
                         <ul>
-                            <li>Analyzed enrollment and degree progression data for over 500 students to identify
-                                retention risks.</li>
-                            <li>Managed and organized 1,000+ advising documents via SharePoint and Microsoft Teams.</li>
-                            <li>Processed 200+ academic requests and waiver forms with high accuracy (99%).</li>
-                            <li>Built Excel-based reporting tools effectively reducing administrative turnaround time by
-                                25%.</li>
+                            <li>Analyzed enrollment and degree data for 500+ students to support accurate academic
+                                advising.</li>
+                            <li>Managed 1,000+ advising documents using SharePoint and Teams, improving data
+                                accessibility.</li>
+                            <li>Processed 200+ advising requests and waiver forms with high accuracy and consistency.
+                            </li>
+                            <li>Built Excel-based reports that reduced advising turnaround time by ~25%.</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Education Item -->
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-date">Graduated 2024</div>
+                <!-- Education Item 1 -->
+                <div class="timeline-item education-item">
+                    <div class="timeline-marker marker-green"></div>
+                    <div class="timeline-header">
+                        <span class="timeline-date">Jan 2024 – Dec 2025</span>
+                        <span class="timeline-tag tag-green">Education</span>
+                    </div>
                     <div class="timeline-content">
-                        <h3>Master of Science in Business Analytics</h3>
-                        <p class="role-location">University of North Texas | Denton, Texas</p>
-                        <p>Specialized in Data Engineering, Predictive Modeling, and Business Intelligence.</p>
+                        <h3><span class="icon">🎓</span> Master’s in Business Analytics</h3>
+                        <p class="role-location">University of North Texas</p>
+                        <ul>
+                            <li>Focus areas: data analysis, business intelligence, predictive modeling, and reporting.
+                            </li>
+                            <li>Applied analytics tools (SQL, Python, Power BI, Tableau, Databricks) through hands-on
+                                projects.</li>
+                            <li>Strengthened stakeholder communication and data storytelling skills.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Hidden Content (Toggleable) -->
+                <div class="timeline-hidden-content" style="display: none;">
+                    <!-- Education Item 2 -->
+                    <div class="timeline-item education-item">
+                        <div class="timeline-marker marker-green"></div>
+                        <div class="timeline-header">
+                            <span class="timeline-date">May 2016 – Aug 2020</span>
+                            <span class="timeline-tag tag-green">Education</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3><span class="icon">🎓</span> Bachelor’s in Electrical Engineering</h3>
+                            <p class="role-location">National Institute of Technology, Raipur</p>
+                            <ul>
+                                <li>Built strong foundations in problem-solving, systems thinking, and quantitative
+                                    analysis.</li>
+                                <li>Developed analytical discipline now applied to business and data analytics.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
             </div>
-        </div>
-    </section>
 
-    <!-- Resume Section -->
-    <section id="resume" class="section-padding bg-light">
-        <div class="container text-center">
-            <h2 class="section-heading">Resume</h2>
-            <p class="mb-4">Check out my full professional background and qualifications.</p>
-            <div class="resume-preview-container">
-                <!-- In a real deployment, an iframe or image of the resume could go here -->
-                <div class="resume-placeholder">
-                    <i class="far fa-file-pdf fa-3x"></i>
-                    <p>Achyutha_Ravula_Resume.pdf</p>
-                </div>
+            <!-- View More Link -->
+            <div class="text-center mt-2">
+                <a href="javascript:void(0)" id="view-more-btn" class="view-all-link" style="font-size: 0.9rem;">View
+                    More <i class="fas fa-chevron-down"></i></a>
             </div>
-            <a href="assets/Achyutha_Ravula_Resume.pdf" download class="btn btn-primary mt-3">Download Resume (PDF)</a>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section-padding">
-        <div class="container form-container">
-            <h2 class="section-heading">Get In Touch</h2>
-            <p class="text-center mb-4">I'm currently open to new opportunities. Feel free to reach out!</p>
+    <!-- Resume -->
+
+
+    <!-- Contact -->
+    <section id="contact" class="section-padding full-height">
+        <div class="container form-container compact-form">
+            <h2 class="section-heading">Contact</h2>
             <form class="contact-form">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+                    <label>Name</label>
+                    <input type="text" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <label>Email</label>
+                    <input type="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <label>Message</label>
+                    <textarea rows="4" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                <button type="submit" class="btn btn-primary btn-block">Send</button>
             </form>
-            <div class="contact-info mt-5 text-center">
-                <p><i class="fas fa-map-marker-alt"></i> Denton, Texas</p>
-                <div class="social-links-large">
-                    <a href="https://www.linkedin.com/in/achyutha-ravula/" target="_blank"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/AchyuthaRavula/" target="_blank"><i class="fab fa-github"></i></a>
-                </div>
+            <div class="text-center mt-4">
+                <a href="mailto:achyutharavula21@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Get
+                    Contact Details</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container text-center">
             <p>&copy;
-                <script>document.write(new Date().getFullYear())</script> Achyutha Ravula. All Rights Reserved.
+                <script>document.write(new Date().getFullYear())</script> Achyutha Ravula.
             </p>
         </div>
     </footer>
