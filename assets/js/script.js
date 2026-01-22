@@ -64,4 +64,43 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    // Force Download Logic for Resume
+    document.querySelectorAll('.download-resume').forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            const url = this.getAttribute('href');
+            // Check if it is a valid file request
+            if (!url) return;
+
+            const filename = url.split('/').pop();
+
+            // Visual feedback (optional)
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Downloading...';
+
+            fetch(url)
+                .then(response => response.blob())
+                .then(blob => {
+                    const blobUrl = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = blobUrl;
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(blobUrl);
+                    document.body.removeChild(a);
+
+                    // Reset text
+                    this.innerHTML = originalText;
+                })
+                .catch(err => {
+                    console.error('Download failed:', err);
+                    this.innerHTML = originalText;
+                    // Fallback to default behavior if fetch fails
+                    window.location.href = url;
+                });
+        });
+    });
 });
