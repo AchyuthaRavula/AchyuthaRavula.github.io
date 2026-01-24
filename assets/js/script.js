@@ -289,24 +289,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // REPLACE THESE IDS WITH YOUR ACTUAL EMAILJS SERVICE/TEMPLATE IDS
             const serviceID = "service_6bdzmae";
-            const templateID = "template_91f90yd";
+            const adminTemplateID = "template_3isqahm";   // Notifies You
+            const autoReplyTemplateID = "template_91f90yd"; // Notifies User
 
-            emailjs.send(serviceID, templateID, templateParams)
+            // 1. Send Notification to Admin (You)
+            emailjs.send(serviceID, adminTemplateID, templateParams)
                 .then(function () {
-                    // Success
+                    console.log("Admin notification sent successfully");
+
+                    // 2. Send Auto-Reply to User (Non-blocking)
+                    emailjs.send(serviceID, autoReplyTemplateID, templateParams)
+                        .catch(err => console.warn("Auto-reply failed (non-critical):", err));
+
+                    // Success UI (We show success immediately if Admin email works)
                     contactForm.style.display = 'none';
                     successMsg.style.display = 'block';
+                    successMsg.querySelector('p').innerText = "Thanks! Message sent successfully.";
                     submitBtn.innerHTML = originalBtnText;
                     submitBtn.disabled = false;
-                }, function (error) {
-                    // Error
-                    console.error('EmailJS Failed:', error);
+                })
+                .catch(function (error) {
+                    // Critical Error: Admin notification failed
+                    console.error('EmailJS Admin Notification Failed:', error);
                     errorMsg.style.display = 'block';
 
-                    // Create a robust fallback message with a button
                     errorMsg.innerHTML = `
                         <p><i class="fas fa-exclamation-circle"></i> Error: ${error.text || "Failed to send"}.</p>
-                        <p class="text-muted small" style="margin-bottom: 10px;">(Check "To Email" in EmailJS Dashboard)</p>
+                        <p class="text-muted small" style="margin-bottom: 10px;">(Problem with Template ID: ${adminTemplateID})</p>
                         <button id="fallback-mailto-btn" class="btn btn-secondary btn-sm">
                             <i class="fas fa-envelope"></i> Send via Email App
                         </button>
