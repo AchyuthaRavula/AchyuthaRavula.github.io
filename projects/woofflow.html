@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WoofFlow Automation | Achyutha Ravula</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">Achyutha Ravula</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#skills">Skills</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#experience">Experience</a></li>
+                    <li><a href="../index.html#resume">Resume</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+                <div class="header-socials">
+                    <a href="mailto:achyutharavula21@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/achyutha-ravula/" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/AchyuthaRavula/" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="project-detail-section reveal">
+        <div class="container">
+            <div class="mb-3">
+                <a href="../index.html#projects" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-left"></i> Back
+                    to Projects</a>
+            </div>
+
+            <div class="project-header">
+                <h1>WoofFlow Automation</h1>
+                <p class="project-tagline">Agentic AI email automation workflow.</p>
+            </div>
+
+            <div class="detail-block">
+                <h2>Problem Statement</h2>
+                <p>Handling a high volume of repetitive customer emails was causing delays in response times and taking
+                    valuable focus away from pet care operations. The business needed a way to automate routine
+                    inquiries while maintaining a personal touch.</p>
+            </div>
+
+            <div class="detail-block">
+                <h2>My Role</h2>
+                <ul>
+                    <li>Designed the end-to-end automation workflow using n8n.</li>
+                    <li>Integrated OpenAI's GPT models to analyze email intent and generate draft responses.</li>
+                    <li>Implemented error handling and human-in-the-loop verification steps.</li>
+                </ul>
+            </div>
+
+            <div class="detail-block">
+                <h2>Tools & Tech</h2>
+                <div class="tech-badges">
+                    <span class="tech-badge"><i class="fas fa-project-diagram"></i> n8n</span>
+                    <span class="tech-badge"><i class="fas fa-brain"></i> OpenAI API</span>
+                    <span class="tech-badge"><i class="fas fa-cogs"></i> Automation</span>
+                    <span class="tech-badge"><i class="fas fa-envelope"></i> Email Parsing</span>
+                </div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Dataset / Inputs</h2>
+                <p>Real-time incoming customer emails, historical email logs for training/prompt engineering, and
+                    booking calendar data.</p>
+            </div>
+
+            <div class="detail-block">
+                <h2>Approach</h2>
+                <div class="approach-step">
+                    <h3>1. Trigger & Ingestion</h3>
+                    <p>The workflow is triggered immediately upon receiving a new email. The content is parsed to
+                        extract key details (sender, subject, body).</p>
+                </div>
+                <div class="approach-step">
+                    <h3>2. Intent Analysis (AI)</h3>
+                    <p>OpenAI analyzes the email to categorize it (e.g., Booking Request, Question, Complaint) and
+                        extracts relevant entities like dates and pet names.</p>
+                </div>
+                <div class="approach-step">
+                    <h3>3. Action and Response</h3>
+                    <p>Based on the intent, the system either drafts a reply, checks calendar availability, or escalates
+                        complex issues to a human manager.</p>
+                </div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Key Insights</h2>
+                <ul>
+                    <li>Over 70% of incoming emails were simple questions about pricing or availability.</li>
+                    <li>Structuring the prompt with specific business context significantly improved response accuracy.
+                    </li>
+                    <li>Speed of response creates a better customer experience and higher conversion for bookings.</li>
+                </ul>
+            </div>
+
+            <div class="detail-block">
+                <h2>Business Impact</h2>
+                <ul>
+                    <li><strong>Time Savings:</strong> Reduced manual email processing time by approximately 80%.</li>
+                    <li><strong>Scalability:</strong> Allowed the business to handle peak season inquiries without
+                        hiring extra admin support.</li>
+                    <li><strong>Consistency:</strong> Ensured every customer received a prompt, polite, and accurate
+                        response.</li>
+                </ul>
+            </div>
+
+            <div class="project-nav-buttons">
+                <a href="https://github.com/AchyuthaRavula/WoofFlow" target="_blank" class="btn btn-secondary"><i
+                        class="fab fa-github"></i> View Code</a>
+                <a href="https://playstaytionpetresort.com/" target="_blank" class="btn btn-primary"><i
+                        class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+            <div class="text-center mt-4">
+                <a href="../index.html#projects" class="btn-link view-all-link">Back to All Projects</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy;
+                <script>document.write(new Date().getFullYear())</script> Achyutha Ravula.
+            </p>
+        </div>
+    </footer>
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

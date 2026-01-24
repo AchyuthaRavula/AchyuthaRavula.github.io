@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Approval ML | Achyutha Ravula</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">Achyutha Ravula</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#skills">Skills</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#experience">Experience</a></li>
+                    <li><a href="../index.html#resume">Resume</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+                <div class="header-socials">
+                    <a href="mailto:achyutharavula21@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/achyutha-ravula/" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/AchyuthaRavula/" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="project-detail-section reveal">
+        <div class="container">
+            <div class="mb-3">
+                <a href="../index.html#projects" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-left"></i> Back
+                    to Projects</a>
+            </div>
+
+            <div class="project-header">
+                <h1>Loan Approval ML</h1>
+                <p class="project-tagline">Classification models using Spark ML.</p>
+            </div>
+
+            <div class="detail-block">
+                <h2>Problem Statement</h2>
+                <p>Financial institutions face the dual challenge of minimizing the risk of loan defaults while
+                    efficiently processing legitimate applications. The goal was to build a predictive model to automate
+                    the approval process with high accuracy.</p>
+            </div>
+
+            <div class="detail-block">
+                <h2>My Role</h2>
+                <ul>
+                    <li>Performed Exploratory Data Analysis (EDA) to understand feature distributions.</li>
+                    <li>Engineered features and handled class imbalances.</li>
+                    <li>Trained and evaluated multiple classification models using Spark MLlib on Databricks.</li>
+                </ul>
+            </div>
+
+            <div class="detail-block">
+                <h2>Tools & Tech</h2>
+                <div class="tech-badges">
+                    <span class="tech-badge"><i class="fas fa-bolt"></i> Spark</span>
+                    <span class="tech-badge"><i class="fab fa-python"></i> Python</span>
+                    <span class="tech-badge"><i class="fas fa-brain"></i> Machine Learning</span>
+                    <span class="tech-badge"><i class="fas fa-database"></i> Databricks</span>
+                </div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Dataset / Inputs</h2>
+                <p>Historical loan application data including applicant demographics, credit history, income levels,
+                    loan amount, and repayment status.</p>
+            </div>
+
+            <div class="detail-block">
+                <h2>Approach</h2>
+                <div class="approach-step">
+                    <h3>1. Data Preprocessing</h3>
+                    <p>Handled missing values, encoded categorical variables (One-Hot Encoding), and scaled numerical
+                        features using VectorAssembler.</p>
+                </div>
+                <div class="approach-step">
+                    <h3>2. Model Selection</h3>
+                    <p>Trained Logistic Regression, Random Forest, and Gradient Boosted Tree models to compare
+                        performance.</p>
+                </div>
+                <div class="approach-step">
+                    <h3>3. Evaluation</h3>
+                    <p>Assessed models using AUC-ROC, Accuracy, and Confusion Matrices to minimize false positives and
+                        false negatives.</p>
+                </div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Key Insights</h2>
+                <ul>
+                    <li>Credit History and Debt-to-Income Ratio were the most significant predictors of default.</li>
+                    <li>Random Forest Classifier achieved the highest accuracy (approx. 85%) and generalization
+                        capability.</li>
+                    <li>Feature importance analysis revealed that applicant income had less impact than expected
+                        compared to credit behavior.</li>
+                </ul>
+            </div>
+
+            <div class="detail-block">
+                <h2>Business Impact</h2>
+                <ul>
+                    <li><strong>Risk Reduction:</strong> Potential to reduce default rates by ~15% through better
+                        prediction.</li>
+                    <li><strong>Efficiency:</strong> Automating initial screening reduces manual review time
+                        significantly.</li>
+                    <li><strong>Consistency:</strong> Removes human bias from the initial approval decision process.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="project-nav-buttons">
+                <a href="https://github.com/AchyuthaRavula/loan-approval-classification" target="_blank"
+                    class="btn btn-secondary"><i class="fab fa-github"></i> View Code</a>
+                <a href="https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/1699273030818206/2186781896601460/3219611887954611/latest.html"
+                    target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+            <div class="text-center mt-4">
+                <a href="../index.html#projects" class="btn-link view-all-link">Back to All Projects</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy;
+                <script>document.write(new Date().getFullYear())</script> Achyutha Ravula.
+            </p>
+        </div>
+    </footer>
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>
