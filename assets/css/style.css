@@ -655,13 +655,30 @@ section.active .contact-form {
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* Staggered Animations for Skills */
+/* -------------------------------------
+   Skills Premium Animations (Grouped)
+------------------------------------- */
+
+/* Keyframe for Card Entry (Fade + Slide Right + Scale) */
+@keyframes fadeInSlideRightScale {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px) scale(0.98);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* Staggered Animations for Skills Cards */
 section.active .skill-card {
-    animation: fadeInUp 0.8s ease-out forwards;
+    animation: fadeInSlideRightScale 0.8s ease-out forwards;
 }
 
 section.active .skill-card:nth-child(1) {
-    animation-delay: 0.2s;
+    animation-delay: 0.1s;
 }
 
 section.active .skill-card:nth-child(2) {
@@ -669,28 +686,46 @@ section.active .skill-card:nth-child(2) {
 }
 
 section.active .skill-card:nth-child(3) {
-    animation-delay: 0.4s;
-}
-
-section.active .skill-card:nth-child(4) {
     animation-delay: 0.5s;
 }
 
-section.active .skill-card:nth-child(5) {
-    animation-delay: 0.6s;
-}
-
-section.active .skill-card:nth-child(6) {
+section.active .skill-card:nth-child(4) {
     animation-delay: 0.7s;
 }
 
-section.active .skill-card:nth-child(7) {
-    animation-delay: 0.8s;
+/* Skill Chip - No Stagger (Appear with Card) */
+.skill-tags span {
+    opacity: 1;
+    /* Visible by default (inside parent) */
+    transform: none;
+    animation: none;
 }
 
-section.active .skill-card:nth-child(8) {
-    animation-delay: 0.9s;
+/* Premium Hover Interactions */
+.skill-card {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    /* Lift */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    /* Soft shadow */
+    border-color: var(--accent-color);
+}
+
+.skill-tags span {
+    transition: transform 0.2s, background 0.2s;
+}
+
+.skill-tags span:hover {
+    transform: none;
+    /* No scaling on hover */
+    background: rgba(88, 166, 255, 0.15);
+    /* Gentle highlight */
+    cursor: default;
+}
+
 
 /* Staggered Animations for Projects */
 section.active .project-card {
@@ -738,6 +773,7 @@ section.active .timeline-item:nth-child(3) {
     .project-card,
     .timeline-item,
     .contact-form,
+    .skill-tags span,
     section#about.active .section-heading,
     section#about.active .about-content p,
     section#about.active .highlight-text::after,
@@ -745,7 +781,8 @@ section.active .timeline-item:nth-child(3) {
     section.active .skill-card,
     section.active .project-card,
     section.active .timeline-item,
-    section.active .contact-form {
+    section.active .contact-form,
+    section.active .skill-card .skill-tags span {
         animation: none !important;
         opacity: 1 !important;
         transform: none !important;
@@ -871,6 +908,15 @@ section.active .timeline-item:nth-child(3) {
     object-position: center;
     /* Center the image to show the middle content */
     transition: transform 0.3s;
+}
+
+/* Explicit Fix for WoofFlow and similar images */
+.project-img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    /* Focus on top elements (robot/email) */
 }
 
 .project-card:hover .project-image img {
