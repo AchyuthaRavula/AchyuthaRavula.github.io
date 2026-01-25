@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }, {
-        threshold: 0.15, // Trigger when 15% visible
+        threshold: 0.35, // Trigger when 35% visible
         rootMargin: "0px 0px -50px 0px"
     });
 
