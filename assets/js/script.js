@@ -347,4 +347,39 @@ document.addEventListener('DOMContentLoaded', function () {
             contactForm.style.display = 'block';
         });
     }
+    /* -------------------------------------
+       Hero Image 3D Tilt Effect
+    ------------------------------------- */
+    const heroContainer = document.querySelector('.hero-container');
+    const avatarWrapper = document.querySelector('.hero-avatar');
+
+    if (heroContainer && avatarWrapper) {
+        heroContainer.addEventListener('mousemove', (e) => {
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReducedMotion) return;
+
+            const rect = avatarWrapper.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const mouseX = e.clientX - centerX;
+            const mouseY = e.clientY - centerY;
+
+            // Invert logic for tilt:
+            // Move mouse RIGHT -> rotateY positive
+            // Move mouse DOWN -> rotateX negative
+            const rotateX = -mouseY / 10;
+            const rotateY = mouseX / 10;
+
+            avatarWrapper.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        heroContainer.addEventListener('mouseleave', () => {
+            avatarWrapper.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            avatarWrapper.style.transition = 'transform 0.5s ease-out';
+        });
+
+        heroContainer.addEventListener('mouseenter', () => {
+            avatarWrapper.style.transition = 'transform 0.1s ease-out';
+        });
+    }
 });
