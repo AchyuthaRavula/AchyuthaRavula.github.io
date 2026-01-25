@@ -382,4 +382,105 @@ document.addEventListener('DOMContentLoaded', function () {
             avatarWrapper.style.transition = 'transform 0.1s ease-out';
         });
     }
+    /* -------------------------------------
+       Fixed Starry Background Animation
+    ------------------------------------- */
+    const canvas = document.getElementById('starry-background');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Star {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                // Tiny stars (0.5px - 2px)
+                this.size = Math.random() * 1.5 + 0.5;
+                // Very slow drift
+                this.speedX = Math.random() * 0.15 - 0.075;
+                this.speedY = Math.random() * 0.15 - 0.075;
+
+                // Cool Tones: Blue, Cyan, Purple, White
+                const hues = [210, 200, 260, 0]; // Blue, Cyan, Purple, White (0 with low sat)
+                this.hue = hues[Math.floor(Math.random() * hues.length)];
+                this.saturation = this.hue === 0 ? '0%' : '80%';
+
+                // Opacity
+                this.baseAlpha = Math.random() * 0.4 + 0.1; // Low opacity
+                this.alpha = this.baseAlpha;
+
+                // Twinkle
+                this.twinkleSpeed = Math.random() * 0.01 + 0.002;
+                this.twinkleDir = 1;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                // Subtle Twinkle
+                this.alpha += this.twinkleSpeed * this.twinkleDir;
+                if (this.alpha > this.baseAlpha + 0.15 || this.alpha > 0.7) {
+                    this.twinkleDir = -1;
+                } else if (this.alpha < this.baseAlpha - 0.1 || this.alpha < 0.05) {
+                    this.twinkleDir = 1;
+                }
+
+                // Warp around
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+
+            draw() {
+                ctx.fillStyle = `hsla(${this.hue}, ${this.saturation}, 75%, ${this.alpha})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+
+                // Soft Glow
+                ctx.shadowBlur = 4;
+                ctx.shadowColor = `hsla(${this.hue}, ${this.saturation}, 75%, 0.5)`;
+
+                ctx.fill();
+                ctx.shadowBlur = 0; // Reset
+            }
+        }
+
+        function initStars() {
+            particles = [];
+            // Count
+            const starCount = Math.floor((canvas.width * canvas.height) / 8000);
+            for (let i = 0; i < starCount; i++) {
+                particles.push(new Star());
+            }
+        }
+
+        initStars();
+
+        function animateStars() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateStars);
+        }
+
+        animateStars();
+    }
 });
