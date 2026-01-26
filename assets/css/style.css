@@ -30,9 +30,13 @@ body {
     /* transparent to show fixed canvas */
     color: var(--text-muted);
     line-height: 1.6;
-    overflow-x: hidden;
     /* Important for background effects */
     position: relative;
+    overflow-x: hidden;
+}
+
+html {
+    overflow-x: hidden;
 }
 
 /* Fixed Starry Background */
@@ -1233,13 +1237,32 @@ footer {
         /* 1 column on mobile */
     }
 
-    .hero-avatar img {
-        width: 200px;
-        height: 200px;
+    /* Skills Grid Mobile Fix */
+    .skills-grid {
+        grid-template-columns: 1fr;
     }
 
+    .hero-avatar img {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto;
+        /* Center image */
+        display: block;
+        object-fit: cover;
+        object-position: center;
+        max-width: 100%;
+    }
+
+    /* Wrap buttons on mobile */
     .hero-buttons {
+        flex-wrap: wrap;
         justify-content: center;
+        width: 100%;
+    }
+
+    /* Ensure full width buttons don't overflow */
+    .hero-buttons .btn {
+        margin-bottom: 10px;
     }
 
     .main-nav {
