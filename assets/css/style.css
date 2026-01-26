@@ -1230,7 +1230,16 @@ footer {
         flex-direction: column;
         text-align: center;
         gap: 30px;
+        padding-top: 80px;
+        /* Ensure content clears fixed header */
     }
+
+    .hero-avatar {
+        height: auto;
+        overflow: visible;
+        margin-top: 20px;
+    }
+
 
     .projects-grid {
         grid-template-columns: 1fr;
@@ -1297,6 +1306,13 @@ footer {
     /* Mobile toggle logic exists in JS */
     .mobile-menu-toggle {
         display: block;
+        order: -1;
+        /* Move to left */
+    }
+
+    .logo {
+        order: 1;
+        /* Move to right (after toggle) */
     }
 
     .carousel-slide {
