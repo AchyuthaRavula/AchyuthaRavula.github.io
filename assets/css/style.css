@@ -481,6 +481,8 @@ h4 {
 .btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    color: var(--text-main);
+    /* Ensure text stays white */
 }
 
 /* Light Sweep Effect on Hover */
@@ -491,10 +493,16 @@ h4 {
     left: -100%;
     width: 60%;
     height: 100%;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100%);
+    /* Reduced opacity to prevent washing out text */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0) 100%);
     transform: skewX(-25deg);
     z-index: -1;
     transition: none;
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
 }
 
 .btn:hover::after {
@@ -536,6 +544,8 @@ h4 {
 .btn-primary:hover {
     background: transparent;
     color: var(--text-main);
+    border-color: var(--text-main);
+    /* Keep border visible */
 }
 
 .btn-secondary {
@@ -546,6 +556,10 @@ h4 {
 
 .btn-secondary:hover {
     border-color: var(--accent-color);
+    color: var(--text-main);
+    /* Ensure text remains white */
+    background: var(--bg-card-hover);
+    /* Keep background dark */
 }
 
 .btn-block {
@@ -565,6 +579,8 @@ h4 {
     margin: 0 auto;
     text-align: center;
     font-size: 1.1rem;
+    color: var(--text-muted);
+    /* Ensure fallback color */
 }
 
 .about-content p {
@@ -1020,7 +1036,14 @@ section.active .timeline-item:nth-child(3) {
 .view-all-link {
     color: var(--accent-color);
     font-weight: 600;
+    display: inline-block;
 }
+
+.view-all-link:hover {
+    text-decoration: underline;
+    color: var(--text-main);
+}
+
 
 /* Timeline */
 .timeline {
@@ -1501,9 +1524,14 @@ html {
     padding-top: 120px;
     /* Account for fixed header */
     padding-bottom: 60px;
-    max-width: 800px;
+    max-width: 900px;
+    /* Slightly wider */
     /* Optimize for reading */
     margin: 0 auto;
+    width: 100%;
+    /* Ensure it takes full width up to max */
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 .project-header {
@@ -1621,15 +1649,32 @@ html {
 /* Navigation Buttons specific to project pages */
 .project-nav-buttons {
     display: flex;
-    justify-content: space-between;
-    /* Spread them out */
-    gap: 15px;
+    justify-content: center;
+    /* Centered instead of space-between */
+    gap: 20px;
     margin-top: 50px;
     border-top: 1px solid var(--border-color);
     padding-top: 30px;
+    flex-wrap: wrap;
+    /* Ensure responsiveness */
 }
 
 .project-nav-buttons .btn {
-    min-width: 140px;
+    min-width: 160px;
+    /* Slightly wider for better touch */
     justify-content: center;
+}
+
+/* Ensure Primary Button Text is always visible (Black on White) */
+.btn-primary {
+    color: #000000 !important;
+    /* Force black text */
+    background: #ffffff;
+}
+
+.btn-primary:hover {
+    color: #ffffff !important;
+    /* Force white text on hover */
+    background: transparent;
+    border-color: #ffffff;
 }
