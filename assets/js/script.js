@@ -138,11 +138,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         }, {
-            threshold: 0.1, // Trigger earlier (10%) to avoid stuck animations
-            rootMargin: "0px 0px -50px 0px"
+            threshold: 0, // Trigger as soon as 1 pixel is visible
+            rootMargin: "0px 0px 0px 0px" // Remove negative margin to ensure it triggers
         });
 
         revealElements.forEach(el => revealObserver.observe(el));
+
+        // Fallback: Force reveal after a short delay to prevent blank screen if observer fails
+        setTimeout(() => {
+            revealElements.forEach(el => {
+                if (!el.classList.contains('active')) {
+                    el.classList.add('active');
+                }
+            });
+        }, 500); // 500ms delay
     }
 
     /* -------------------------------------
