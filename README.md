@@ -1,4 +1,4 @@
-# 📊 Achyutha Ravula — Analytics Professional
+# 📊 Achyutha Ravula Portfolio
 
 Welcome to the source repository for my **GitHub Pages portfolio** — the code that powers https://achyutharavula.github.io/.  
 This site represents my professional brand, showcasing **data analytics work, BI dashboards, automation projects, and professional experience**.
